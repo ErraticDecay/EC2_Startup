@@ -1,0 +1,11 @@
+\dd = object description
+\dt = relations 
+\d+ <table name> = addt'l info about table
+\l  = list of databases
+\c <database_name> = connect to database
+\q  = quit psql
+
+
+
+
+# https://www.postgresqltutorial.com/postgresql-cheat-sheet/
