@@ -23,7 +23,6 @@ sudo service postgresql initdb
 sudo service postgresql start
 
 
-# https://www.fullstackpython.com/blog/postgresql-python-3-psycopg2-ubuntu-1604.html
 ------------------------------------------
 - DB Setup
 
