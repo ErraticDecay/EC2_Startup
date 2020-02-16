@@ -4,6 +4,7 @@
 sudo su # switch to root user
 yum update -y #update OS
 yum install -y python36
+yum install -y python36-devel
 yum install -y httpd24
 python3 -m pip install --upgrade pip
 python3 -m pip install flask
@@ -35,6 +36,19 @@ createuser ec2-user -P --interactive
 # as ec2-user
 createdb <database name>
 psql <database name>
+
+------------------------------------------
+- Setup and activate virtual Env
+# as ec2-user
+mkdir /home/ec2-user/venvs
+python3 -m venv /home/ec2-user/venvs
+cd ~/venvs/bin
+source activate
+pip install psycopg2-binary
+# as root (or sudo)
+vi /var/lib/pgsql9/data/pg_hba.conf
+-> In the file change auth protocol for IP4 and IP6 to md5 from ident
+service postgresql reload
 
 
 
