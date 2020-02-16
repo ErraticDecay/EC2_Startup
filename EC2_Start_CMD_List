@@ -1,0 +1,30 @@
+# Once the instance has been started
+sudo su # switch to root user
+yum update -y #update OS
+yum install -y python36
+yum install -y httpd24
+python3 -m pip install --upgrade pip
+python3 -m pip install flask
+python3 -m pip install sqlalchemy
+yum install -y postgresql92 postgresql92-server
+exit (ctrl-D)
+# as ec2_user
+  sudo yum install postgresql-server
+su postgres #switch to postgres user
+cd /var/tmp
+mkdir db
+initdb -D /var/tmp/db
+# as ec2_user
+sudo service postgresql initdb
+sudo service postgresql start
+--
+https://www.fullstackpython.com/blog/postgresql-python-3-psycopg2-ubuntu-1604.html
+createuser ec2_user -P --interactive
+>prompts for PW twice (sean)
+>s/u?         :n
+>create dbs?  :y
+>new roles?   :y
+
+
+
+
