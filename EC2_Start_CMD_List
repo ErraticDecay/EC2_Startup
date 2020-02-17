@@ -6,6 +6,7 @@ yum update -y #update OS
 yum install -y python36
 yum install -y python36-devel
 yum install -y httpd24
+service httpd start
 python3 -m pip install --upgrade pip
 python3 -m pip install flask
 python3 -m pip install sqlalchemy
@@ -21,7 +22,6 @@ initdb -D /var/tmp/db
 # as ec2_user
 sudo service postgresql initdb
 sudo service postgresql start
-
 
 ------------------------------------------
 - DB Setup
