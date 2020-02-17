@@ -1,8 +1,5 @@
 #!/usr/bin/python3
-
 import psycopg2
-
-
 try:
     connect_str = "dbname='testpython' user='ec2-user' host='localhost' password='sean'"
     # use our connection values to establish a connection
@@ -19,5 +16,4 @@ try:
     cursor.close()
     conn.close()
 except Exception as e:
-    print("Uh oh, can't connect. Invalid dbname, user or password?")
     print(e)
