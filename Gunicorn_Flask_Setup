@@ -1,0 +1,27 @@
+-----------------------------------
+------      AWS Console      ------
+Goto the Network&Security->Security Groups
+Add custom TCP rule (under new group) for whatever port range (ex. 5000-5100)
+With the EC2 Dashboard/Instance view back up, networking->select change security groups -> add that group to the instance
+
+# Back to linux - everything below is assuming home dir is root
+mkdir /home/ec2-user/python (755)
+mkdir /home/ec2-user/webapp (755)
+python3 -m venv /home/ec2-user/webapp
+source /home/ec2-user/webapp/bin/activate
+pip install flask
+pip install gunicorn
+deactivate (close down venv)
+mkdir /home/ec2-user/logs
+chmod 755 /home/ec2-user/logs
+# Log names below - make specific to the application, also make them match what is in the gunicorn config file
+touch minimal.log (775)
+touch minimal_access.log (775)
+
+move two files into ( /home/ec2-user/python )
+mf.py and gu_minimal.py
+
+
+
+Command to start ( from /home/ec2-user/python )
+/home/ec2-user/webapp/bin/gunicorn -c /home/ec2-user/python/gu_minimal.py fm:app
