@@ -1,0 +1,18 @@
+------------------------------------------
+- DB Setup
+sudo su
+su postgres
+cd /var/tmp
+mkdir db
+initdb -D /var/tmp/db
+createuser ec2-user -P --interactive
+>prompts for PW twice (sean)
+>s/u?         :n
+>create dbs?  :y
+>new roles?   :y
+exit (cntl-D)
+# as ec2_user
+sudo service postgresql initdb
+sudo service postgresql start
+createdb <database name>
+psql <database name>
