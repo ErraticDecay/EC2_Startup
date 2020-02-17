@@ -15,26 +15,7 @@ exit (ctrl-D)
 # as ec2-user
   sudo yum install postgresql-server
 
-su postgres #switch to postgres user
-cd /var/tmp
-mkdir db
-initdb -D /var/tmp/db
-# as ec2_user
-sudo service postgresql initdb
-sudo service postgresql start
 
-------------------------------------------
-- DB Setup
-
-createuser ec2-user -P --interactive
->prompts for PW twice (sean)
->s/u?         :n
->create dbs?  :y
->new roles?   :y
-
-# as ec2-user
-createdb <database name>
-psql <database name>
 
 ------------------------------------------
 - Setup and activate virtual Env
