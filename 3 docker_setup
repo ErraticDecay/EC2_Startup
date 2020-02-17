@@ -1,0 +1,16 @@
+-------------------------------
+- Installing Docker on the EC2
+- Will be using example image from the docker page: https://hub.docker.com/r/training/webapp/
+# as ec2-user
+sudo yum install -y docker
+sudo service docker start
+sudo usermod -a -G docker ec2-user
+exit (or cntl-D)
+docker info ( should output info about docker )
+docker run -d -p 80:5000 training/webapp:latest python app.py (note this port will collide with flask if you use 5000 for both)
+
+- navigate to the address of the public dns and you should get the webapp displaying hello world
+
+
+
+
